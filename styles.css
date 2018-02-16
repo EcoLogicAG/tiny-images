@@ -2,9 +2,11 @@
 }
 
 .mce-eco-panel-content {
-  height: 400;
-  width: 700;
+  height: 460px;
+  width: 860px;
   display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
 .mce-eco-image-cell {
@@ -17,4 +19,9 @@
 
 img.mce-eco-image {
   width: 100px;
+}
+
+p.mce-eco-image-title {
+  text-align: center;
+  padding-top: 5px;
 }

@@ -30,6 +30,7 @@ tinymce.PluginManager.add('image', function (editor, url) {
       imageDiv.setAttribute('class', 'mce-eco-image-cell');
       var image = document.createElement('img');
       var imageTitle = document.createElement('p');
+      imageTitle.setAttribute('class', 'mce-eco-image-title');
       imageTitle.innerHTML = title;
       image.setAttribute('src', imageList[imageIndex].value);
       image.setAttribute('class', 'mce-eco-image');
@@ -81,8 +82,8 @@ tinymce.PluginManager.add('image', function (editor, url) {
 
     function showDialog(imageList) {
       var win = editor.windowManager.open({
-        title: 'EcoImages',
-        autoScroll: true,
+        title: 'Images',
+        autoScroll: false,
         width: 900,
         height: 500,
         body: [
