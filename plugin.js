@@ -25,7 +25,6 @@ tinymce.PluginManager.add('image', function (editor, url) {
     contentDiv.setAttribute('class', 'mce-eco-panel-content');
     for (var imageIndex = 0; imageIndex < imageList.length; imageIndex++) {
       var title = imageList[imageIndex].text;
-      console.log(imageList[imageIndex]);
       var imageDiv = document.createElement('div');
       imageDiv.setAttribute('class', 'mce-eco-image-cell');
       var image = document.createElement('img');
@@ -101,7 +100,11 @@ tinymce.PluginManager.add('image', function (editor, url) {
       for (var i = 0; i < imageDivs.length; i++) {
         imageDivs[i].addEventListener('click', function () {
           var image = document.createElement('img');
-          image.setAttribute('src', this.getAttribute('src'));
+            var baseUrl = window.location.protocol + '//' + window.location.host;
+          if (window.location.port !== "") {
+            baseUrl += ':' + window.location.port;
+          }
+          image.setAttribute('src',  baseUrl + this.getAttribute('src'));
           editor.insertContent(image.outerHTML);
           win.close();
         });
